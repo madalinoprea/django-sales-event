@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>{{ event.name }}</h1>
+<aside id="event-toolbar">
+	<select id="sort-by" onchange="if(this.value!='false'){window.location=this.value;}">
+		<option value="{{ event.get_absolute_url }}">Sort By</option>
+		<option value="?order_by=name&dir=asc">Name -- A-Z</option>
+		<option value="?order_by=name&dir=desc">Name -- Z-A</option>
+		<option value="?order_by=price&dir=asc">Price -- Low - High</option>
+		<option value="?order_by=price&dir=desc">Price -- High - Low</option>
+	</select>
+</aside>
+<section id="event-products">
+<h2>{{ event.category.name }}</h2>
+{% for product in products %}
+	<article title="{{ product.name }}" id="product-{{ product.pk }}">
+		<div class="product-name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+		<div class="product price">{{ product.price }}</div>
+	</article>
+{% empty %}
+	<p>There are no products in this event.</p>
+{% endfor %}
+</section>
+{% endblock %}

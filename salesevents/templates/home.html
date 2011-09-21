@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block events %}
+{% for event in open_events %}
+	{% if forloop.first %}<h2>Events</h2>{% endif %}
+	<h3><a href="{{ event.get_absolute_url }}">{{ event.name }}</a></h3>
+{% endfor %}
+
+{% for event in upcoming_events %}
+	{% if forloop.first %}<h2>Upcoming Events</h2>{% endif %}
+	<h3>{{ event.name }}</h3>
+{% endfor %}
+
+{% for event in closed_events %}
+	{% if forloop.first %}<h2>Closed Events</h2>{% endif %}
+	<h3>{{ event.name }}</h3>
+{% endfor %}
+{% endblock %}
