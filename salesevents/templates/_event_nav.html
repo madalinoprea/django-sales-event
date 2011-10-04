@@ -1,0 +1,12 @@
+<ul id="event-nav" class="sf-menu sf-navbar">
+    {% for cat in event.category.get_children %}
+        <li><a href="{% url event_category event.slug, cat.slug %}" title="{{ cat.name }}" class="{% if forloop.first %}current{% endif %}">{{ cat.name }}</a>
+        <ul class="sub-level">
+        {% for subcat in cat.get_children %}
+            <li><a href="{% url event_category event.slug, subcat.slug %}" title="{{ subcat.name }}">{{ subcat.name }}</a></li>
+        {% endfor %}
+        </ul>
+        </li>
+    {% endfor %}
+</ul>
+<div class="clear"></div>

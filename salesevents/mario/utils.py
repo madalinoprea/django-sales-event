@@ -105,4 +105,10 @@ def update(self, using=None, **kwargs):
             continue
         setattr(self, k, v)
 update.alters_data = True
+
+def format_timedelta(dt):
+    dt_seconds = dt.total_seconds()
+    hours, remainder = divmod(dt_seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return '%d:%.2d:%.2d' % (hours, minutes, seconds)
     

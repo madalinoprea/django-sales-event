@@ -1,0 +1,112 @@
+#header-container {
+    background: #350200 url('/media/images/header-container.jpg') repeat-x center 25px;
+    margin: 0 0 13px;
+    font-family: 'AvenirLTStd85Heavy', Arial, Helvetica, sans-serif;
+}
+#header {
+    background: transparent url('/media/images/header.png');
+    height: 205px;
+    width: 940px;
+    margin: 0 auto;
+}
+
+#header-account {
+    text-align: right;
+    background-color: #350200;
+    height: 25px;
+    line-height: 25px;
+}
+
+#header-account a {
+    color: white;
+    text-transform: uppercase;
+    
+}
+
+.logo img {
+    vertical-align: top;
+}
+
+#header-toolbar {
+    background-color: #350200;
+    height: 25px;
+    line-height: 25px;
+    /*position: relative;*/
+}
+
+#breadcrumbs ul {
+    list-style: none;
+    display: inline;
+    color: white;
+}
+#breadcrumbs ul li {
+    display: inline;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background-color: #350200;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+}
+
+#footer ul {
+    list-style: none;
+    display: inline;
+}
+
+#footer ul li {
+    display: inline;
+    padding: 0;
+}
+
+#footer a {
+    color: white;
+}
+
+#footer-address {
+    display: inline;
+}
+
+.links {
+    display: inline;
+}
+
+.links li {
+    display: inline;
+}
+
+.event-info .button {
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #E50047;
+    color: white;
+}
+.event-info .button:after {
+    content: " »";
+}
+
+.event-item {
+    position: relative;
+    list-style-type: none;
+    border: 5px solid #350200;
+}
+
+.event-info {
+    width: 350px;
+    height: 134px;
+    position: absolute;
+    right: 0;
+    bottom: 33px;
+}
+
+.event-ticker {
+    clear: left;
+}
+
+

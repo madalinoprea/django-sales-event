@@ -1,0 +1,4 @@
+Activation email text
+
+You need to activate your account created on {{ site }}.
+Please click on this link to activate your account: http://{{ site.domain }}{% url registration_activate activation_key %} in maximum {{ expiration_days }} days.

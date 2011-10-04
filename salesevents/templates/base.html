@@ -2,11 +2,81 @@
 <html>
 <head>
 	<title>{% block title %}Sales Events{% endblock %}</title>
+    {% block css %}
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/shop.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/print.css" type="text/css" media="print">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/plugins/buttons/screen.css">
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="{{ MEDIA_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
+        <![endif]-->
+    {% endblock %}
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-{% block body %}
-	{% block events %}
-	{% endblock %}
+{% block page %}
+    {% block header %}
+        <div id="header-container">
+        <div id="header-account">
+                <span class="welcome-msg">Welcome, {{ user.first_name }}.</span>
+                <ul class="links">
+                    <li><a href="{% url logout %}">Log out</a></li>
+                    <li><a href="">My Account</a></li>
+                    <li><a>Shopping Bag</a></li>
+                </ul>
+        </div>
+        <header id="header">
+            <div class="branding">
+                <a href="{% url home %}" title="Private Event Store"><img src="{{ MEDIA_URL }}images/logo.png"/></a>
+            </div>
+        </header>
+        <div id="header-toolbar">
+            <div id="breadcrumbs" class="left">
+                {% block breadcrumbs %}{% endblock %}
+            </div>
+            <div class="right">
+                <form id="search-form" method="get" action="/search"><!--TODO: implement search -->
+                    <label for="search">Search:</label>
+                    <input type="search" name="q" value="">
+                    <input type="submit" class="button positive" title="Go" value="Go">
+                </form>
+            </div>
+        </div>
+        </div>
+    {% endblock %}
+
+
+    <div id="doc" class="container">
+    {% block body %}
+        {% block events %}
+        {% endblock %}
+    {% endblock %}
+    </div>
+
+    <div class="">
+    {% block footer %}
+        <footer id="footer">
+            <img src="{{ MEDIA_URL }}images/footer_logo.png" title="Magneto" />
+            <address id="footer-address">1-800-000-0000 &copy; 2011 Magneto, Inc.</address>
+            <ul class="links">
+                <li><a href="">Store Locator</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">Security & Privacy</a></li>
+            </ul>
+        </footer>
+    {% endblock %}
+    </div>
+    
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.countdown.min.js"></script>
+<script src="{{ MEDIA_URL }}js/shop.js"></script>
+{% endblock %}
+{% block extra_js %}
+{# Overwrite this block to add other JS you'll need #}
 {% endblock %}
 </body>
 </html>

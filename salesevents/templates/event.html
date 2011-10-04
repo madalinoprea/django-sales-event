@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/superfish.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/superfish-navbar.css">
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul>
+        <li><a href="{% url home %}">Home</a></li>
+        <li>{{ event.name }}</li>
+    </ul>
+{% endblock %}
+
 {% block body %}
+{% include '_event_nav.html' %}
 <h1>{{ event.name }}</h1>
 <aside id="event-toolbar">
 	<select id="sort-by" onchange="if(this.value!='false'){window.location=this.value;}">
@@ -11,7 +24,6 @@
 	</select>
 </aside>
 <section id="event-products">
-<h2>{{ event.category.name }}</h2>
 {% for product in products %}
 	<article title="{{ product.name }}" id="product-{{ product.pk }}">
 		<div class="product-name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
@@ -21,4 +33,14 @@
 	<p>There are no products in this event.</p>
 {% endfor %}
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/superfish.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("ul.sf-menu").superfish({pathClass:  'current'});
+});
+</script>
 {% endblock %}

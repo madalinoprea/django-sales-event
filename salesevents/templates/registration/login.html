@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block header %}{% endblock %}
+{% block body %}
+    <div class="login-welcome span-10 last">
+        <h2>Welcome To <span>MY STORE</span><span>Factory</span></h2>
+        <h3>Some title here products.</h3>
+
+        <div class="account-login">
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            <form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+                <fieldset>
+                    <legend>Log In</legend>
+                    <table>
+                        <tr>
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                    </table>
+
+                    <button type="submit" class="button positive" value="login">Login</button>
+                    <input type="hidden" name="next" value="{{ next }}">
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <a href="{% url django.contrib.auth.views.password_reset %}">Forgot Your Password?</a>
+        </div>
+        <div>
+            <p>Weren't invited? <a href="{% url registration_register %}" title="Sign Up">Sign Up</a> for a chance to be included
+            in future events.</p>
+        </div>
+    </div>
+{%  endblock %}
