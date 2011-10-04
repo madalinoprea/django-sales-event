@@ -43,10 +43,15 @@ end
 #    command "python manage.py syncdb --noinput"
 #end
 
-# Sync db
+# Init static directory
+directory "/vagrant/salesevents/static" do
+  mode "0755"
+  action :create
+end
+
 execute "app-collect-static" do
     cwd "/vagrant/salesevents"
-    command "python manage.py collectstatic"
+    command "python manage.py collectstatic --noinput"
 end
 
 # Run dev server
