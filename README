@@ -1,2 +1,28 @@
 # Installation
 sudo pip install -r requirements.txt
+
+# Vagrant installation
+ * Install Vagrant: http://vagrantup.com/docs/getting-started/index.html
+    - If you already have Ruby only this is required: gem install vagrant
+{{{
+vagrant box add base http://files.vagrantup.com/lucid32.box
+vagrant up
+}}}
+ * Manual steps (that need to be corrected - automatically install django db)
+ {{{
+     vagrant ssh
+     cd /vagrant/salesevents
+     ./manage.py syncdb
+ }}}
+ * Automatically this is done:
+    - apache2, mod_wsgi, mysql, django and other python packages (PIL, memcached, mysql) are installed
+    - application site configuration is enabled in apache
+    - application db installed
+    - site is availble at  http://192.168.57.100  or http://localhost:8000/
+
+# Opened things
+ * Implement shipping methods
+ * Implement item reservation
+ * Implement search (haystack)
+ * Implement checkout with Cybersource (Simpler Order API)
+ * Implement API

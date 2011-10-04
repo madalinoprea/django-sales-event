@@ -1,0 +1,5 @@
+# sudo pip install -r requirements.txt
+django
+django-mptt
+django-registration
+django-debug-toolbar

@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+    DocumentRoot <%= @node[:vagrant][:directory] %>
+
+    Alias /media <%= @node[:vagrant][:directory] %>/salesevents/media
+    Alias /static <%= @node[:vagrant][:directory] %>/salesevents/static
+
+    <Directory <% @node[:vagrant][:directory] %>/salesevents/static>
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    <Directory <%= @node[:vagrant][:directory] %>/salesevents/media>
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    WSGIScriptAlias / <%= @node[:vagrant][:directory] %>/django.wsgi
+</VirtualHost>
