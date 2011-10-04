@@ -1,3 +1,4 @@
 *.pyc
 .idea/
 .vagrant
+salesevents/static/ # Django STATIC_ROOT (gets populated when running collectstatic)
