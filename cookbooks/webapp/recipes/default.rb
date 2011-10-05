@@ -27,7 +27,7 @@ end
 
 # TODO: parametrize all these execute commands
 execute "create-app-db" do
-    command "echo CREATE DATABASE IF NOT EXISTS salesevents > mysql -uroot"
+    command "mysql -uroot -p#{node[:mysql][:server_root_password]} -e 'CREATE DATABASE IF NOT EXISTS salesevents'"
 end
 
 
@@ -38,10 +38,10 @@ execute "install-app-reqs" do
 end
 
 # Sync db
-#execute "sync-db" do
-#    cwd "/vagrant/salesevents"
-#    command "python manage.py syncdb --noinput"
-#end
+execute "sync-db" do
+    cwd "/vagrant/salesevents"
+    command "python manage.py syncdb --noinput"
+end
 
 # Init static directory
 directory "/vagrant/salesevents/static" do
@@ -65,5 +65,4 @@ web_app "application" do
     template "application.conf.erb"
     notifies :restart, resources(:service => "apache2")
 end
-
 
