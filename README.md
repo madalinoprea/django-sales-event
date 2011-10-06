@@ -39,5 +39,5 @@ To use Django developer server you'll have to start it by hand. Port forwarding 
  * Implement shipping methods
  * Implement item reservation
  * Implement search (haystack)
- * Implement checkout with Cybersource (Simpler Order API)
+ * Implement checkout with Cybersource (Simpler Order API) - maybe
  * Implement API
