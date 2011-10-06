@@ -3,3 +3,4 @@
 .vagrant
 # Django STATIC_ROOT (gets populated when running collectstatic)
 salesevents/static/
+salesevents/media/events/
