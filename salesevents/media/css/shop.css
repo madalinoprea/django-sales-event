@@ -1,13 +1,104 @@
+
+/* -------------------------------------------------------------------- General */
+
+body {
+    min-width: 1000px;
+    font-family: Cambria, Verdana, Arial, sans-serif;
+    font-size: 100%;
+    background: #FFF;
+    color: #000;
+}
+
+#page {
+    width: 80%;
+    min-width: 960px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+a {
+    color: #1122CC;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #E50140;
+}
+
+
+/* -------------------------------------------------------------------- Toolbar */
+
+#toolbar {
+    width: 100%;
+    background: #F5F5F5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+#toolbar .inner {
+    width: 80%;
+    min-width: 960px;
+    max-width: 1400px;
+    margin: 0 auto;    
+}
+
+#toolbar p {
+    float: left;
+    padding: .4em 0 .5em 0;
+}
+
+#toolbar ul {
+    float: right;
+}
+
+#toolbar li {
+    float: left;
+    margin: 0 0 0 1.5em;
+}
+
+#toolbar li a {
+    float: left;
+    padding: .4em 0 .5em 0;
+}
+
+
+/* -------------------------------------------------------------------- Header */
+
+#header {
+    padding: 1em;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+#header h1 {
+    font-size: 1.2em;
+}
+
+#header h1 a {
+    float: left;
+    height: 43px;
+    padding: 25px 0 0 80px;
+    background: url(/media/images/logo.png) no-repeat 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #header-container {
     background: #350200 url('/media/images/header-container.jpg') repeat-x center 25px;
     margin: 0 0 13px;
     font-family: 'AvenirLTStd85Heavy', Arial, Helvetica, sans-serif;
-}
-#header {
-    background: transparent url('/media/images/header.png');
-    height: 205px;
-    width: 940px;
-    margin: 0 auto;
 }
 
 #header-account {
@@ -31,7 +122,6 @@
     background-color: #350200;
     height: 25px;
     line-height: 25px;
-    /*position: relative;*/
 }
 
 #breadcrumbs ul {
@@ -109,4 +199,4 @@
     clear: left;
 }
 
-
+*/

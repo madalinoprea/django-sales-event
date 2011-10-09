@@ -4,50 +4,43 @@
 	<title>{% block title %}Sales Events{% endblock %}</title>
     {% block css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/reset.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/clearfix.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/shop.css">
     {% endblock %}
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+<div id="toolbar" class="clearfix">
+    <div class="inner">
+        <p>Welcome, dear username. {{ user.first_name }}</p>
+        <ul>
+            <li><a href="#shopping-bag">Shopping Bag</a></li>
+            <li><a href="#shopping-bag">My Account</a></li>
+            <li><a href="{% url logout %}">Log out</a></li>
+        </ul>
+    </div>
+</div>
+<div id="page">
 {% block page %}
     {% block header %}
-        <div id="header-container">
-        <div id="header-account">
-                <span class="welcome-msg">Welcome, {{ user.first_name }}.</span>
-                <ul class="links">
-                    <li><a href="{% url logout %}">Log out</a></li>
-                    <li><a href="">My Account</a></li>
-                    <li><a>Shopping Bag</a></li>
-                </ul>
+    <div id="header" class="clearfix">
+        <h1 class="clearfix"><a href="{% url home %}" title="Private Event Store">Private Event Store</a></h1>
+        <div id="breadcrumbs" class="left">
+            {% block breadcrumbs %}{% endblock %}
         </div>
-        <header id="header">
-            <div class="branding">
-                <a href="{% url home %}" title="Private Event Store"><img src="{{ MEDIA_URL }}images/logo.png"/></a>
-            </div>
-        </header>
-        <div id="header-toolbar">
-            <div id="breadcrumbs" class="left">
-                {% block breadcrumbs %}{% endblock %}
-            </div>
-            <div class="right">
-                <form id="search-form" method="get" action="/search"><!--TODO: implement search -->
-                    <label for="search">Search:</label>
-                    <input type="search" name="q" value="">
-                    <input type="submit" class="button positive" title="Go" value="Go">
-                </form>
-            </div>
-        </div>
-        </div>
+        <form id="search-form" method="get" action="/search"><!--TODO: implement search -->
+            <label for="search">Search:</label>
+            <input type="search" name="q" value="">
+            <input type="submit" class="button positive" title="Go" value="Go">
+        </form>
+    </div>
     {% endblock %}
-
-
     <div id="doc" class="container">
     {% block body %}
         {% block events %}
         {% endblock %}
     {% endblock %}
     </div>
-
     <div class="">
     {% block footer %}
         <footer id="footer">
@@ -62,8 +55,8 @@
         </footer>
     {% endblock %}
     </div>
-    
 {% endblock %}
+</div>
 {% block js %}
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
