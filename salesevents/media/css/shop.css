@@ -80,8 +80,16 @@ a:hover {
 }
 
 
+/* -------------------------------------------------------------------- Breadcrumbs */
 
+#breadcrumbs ul li {
+    float: left;
+    padding: 0 .5em 0 0;
+}
 
+#breadcrumbs ul li a {
+    float: left;
+}
 
 
 

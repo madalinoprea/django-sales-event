@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/superfish.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/superfish-navbar.css">
@@ -11,28 +12,28 @@
     </ul>
 {% endblock %}
 
-{% block body %}
-{% include '_event_nav.html' %}
-<h1>{{ event.name }}</h1>
-<aside id="event-toolbar">
-	<select id="sort-by" onchange="if(this.value!='false'){window.location=this.value;}">
-		<option value="{{ event.get_absolute_url }}">Sort By</option>
-		<option value="?order_by=name&dir=asc">Name -- A-Z</option>
-		<option value="?order_by=name&dir=desc">Name -- Z-A</option>
-		<option value="?order_by=price&dir=asc">Price -- Low - High</option>
-		<option value="?order_by=price&dir=desc">Price -- High - Low</option>
-	</select>
-</aside>
-<section id="event-products">
-{% for product in products %}
-	<article title="{{ product.name }}" id="product-{{ product.pk }}">
-		<div class="product-name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
-		<div class="product price">{{ product.price }}</div>
-	</article>
-{% empty %}
-	<p>There are no products in this event.</p>
-{% endfor %}
-</section>
+{% block content %}
+    {% include '_event_nav.html' %}
+    <h2>{{ event.name }}</h2>
+    <aside id="event-toolbar">
+    	<select id="sort-by" onchange="if(this.value!='false'){window.location=this.value;}">
+    		<option value="{{ event.get_absolute_url }}">Sort By</option>
+    		<option value="?order_by=name&dir=asc">Name -- A-Z</option>
+    		<option value="?order_by=name&dir=desc">Name -- Z-A</option>
+    		<option value="?order_by=price&dir=asc">Price -- Low - High</option>
+    		<option value="?order_by=price&dir=desc">Price -- High - Low</option>
+    	</select>
+    </aside>
+    <section id="event-products">
+        {% for product in products %}
+    	<article title="{{ product.name }}" id="product-{{ product.pk }}">
+    		<div class="product-name"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></div>
+    		<div class="product price">{{ product.price }}</div>
+    	</article>
+        {% empty %}
+    	<p>There are no products in this event.</p>
+        {% endfor %}
+    </section>
 {% endblock %}
 
 {% block extra_js %}

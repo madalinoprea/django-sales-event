@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>{% block title %}Sales Events{% endblock %}</title>
+    <title>{% block title %}Sales Events{% endblock %}</title>
     {% block css %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/reset.css">
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/clearfix.css">
@@ -10,6 +10,7 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    
 <div id="toolbar" class="clearfix">
     <div class="inner">
         <p>Welcome, dear username. {{ user.first_name }}</p>
@@ -20,51 +21,56 @@
         </ul>
     </div>
 </div>
+
 <div id="page">
 {% block page %}
-    {% block header %}
+
     <div id="header" class="clearfix">
+    {% block header %}
         <h1 class="clearfix"><a href="{% url home %}" title="Private Event Store">Private Event Store</a></h1>
-        <div id="breadcrumbs" class="left">
-            {% block breadcrumbs %}{% endblock %}
-        </div>
         <form id="search-form" method="get" action="/search"><!--TODO: implement search -->
             <label for="search">Search:</label>
             <input type="search" name="q" value="">
             <input type="submit" class="button positive" title="Go" value="Go">
         </form>
-    </div>
-    {% endblock %}
-    <div id="doc" class="container">
-    {% block body %}
-        {% block events %}
-        {% endblock %}
     {% endblock %}
     </div>
-    <div class="">
+
+    <div id="breadcrumbs" class="clearfix">
+    {% block breadcrumbs %}{% endblock %}
+    </div>
+
+    <div id="content" class="clearfix">
+    {% block content %}
+        {% block events %}{% endblock %}
+    {% endblock %}
+    </div>
+
+    <div id="footer" class="clearfix">
     {% block footer %}
-        <footer id="footer">
-            <img src="{{ MEDIA_URL }}images/footer_logo.png" title="Magneto" />
-            <address id="footer-address">1-800-000-0000 &copy; 2011 Magneto, Inc.</address>
-            <ul class="links">
-                <li><a href="">Store Locator</a></li>
-                <li><a href="">FAQ</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">Security & Privacy</a></li>
-            </ul>
-        </footer>
+        <img src="{{ MEDIA_URL }}images/footer_logo.png" title="Magneto" />
+        <address id="footer-address">1-800-000-0000 &copy; 2011 Magneto, Inc.</address>
+        <ul class="links">
+            <li><a href="#store-locator">Store Locator</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+            <li><a href="#security-privacy">Security &amp; Privacy</a></li>
+        </ul>
     {% endblock %}
     </div>
+    
 {% endblock %}
 </div>
+
 {% block js %}
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.countdown.min.js"></script>
 <script src="{{ MEDIA_URL }}js/shop.js"></script>
 {% endblock %}
+
 {% block extra_js %}
-{# Overwrite this block to add other JS you'll need #}
+    {# Overwrite this block to add other JS you'll need #}
 {% endblock %}
 </body>
 </html>

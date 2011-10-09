@@ -1,40 +1,40 @@
 {% extends 'base.html' %}
 
 {% block events %}
-{% if open_events %}
-<h2>Events</h2>
-<ul>
-    {% for event in open_events %}
-    <li id="event-item-{{ event.id }}" class="event-item">
+    {% if open_events %}
+    <h2>Events</h2>
+    <ul>
+        {% for event in open_events %}
+        <li id="event-item-{{ event.id }}" class="event-item">
+            <h3>{{ event.name }}</h3>
+            <img src="{{ MEDIA_URL }}{{ event.image }}">
+            <div class="event-info">
+                <a class="button" href="{{ event.get_absolute_url }}">Shop Now</a>
+                <div class="event-ticker" id="event-ticker-{{ event.id }}" data="{{ event.time_to_close }}"></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    {% if upcoming_events %}
+    <h2>Upcoming Events</h2>
+        {% for event in upcoming_events %}
         <h3>{{ event.name }}</h3>
-        <img src="{{ MEDIA_URL }}{{ event.image }}">
-        <div class="event-info">
-            <a class="button" href="{{ event.get_absolute_url }}">Shop Now</a>
-            <div class="event-ticker" id="event-ticker-{{ event.id }}" data="{{ event.time_to_close }}"></div>
+        <div class="category-info">
+            <img src="{{ MEDIA_URL }}{{ event.image }}">
         </div>
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-
-{% if upcoming_events %}
-<h2>Upcoming Events</h2>
-    {% for event in upcoming_events %}
-    <h3>{{ event.name }}</h3>
-    <div class="category-info">
-        <img src="{{ MEDIA_URL }}{{ event.image }}">
-    </div>
-    {% endfor %}
-{% endif %}
-
-{% if closed_events %}
-<h2>Closed Events</h2>
-<ul>
-    {% for event in closed_events %}
-	<li>{{ event.name }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+        {% endfor %}
+    {% endif %}
+    
+    {% if closed_events %}
+    <h2>Closed Events</h2>
+    <ul>
+        {% for event in closed_events %}
+    	<li>{{ event.name }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 {% endblock %}
 
 

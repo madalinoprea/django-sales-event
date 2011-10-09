@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-{% block body %}
-<h2>{{ product.name }}</h2>
-<section id='product-info'>
-</section>
+
+{% block breadcrumbs %}
+    <ul>
+        <li><a href="{% url home %}">Home</a></li>
+        <li>{{ event.name }}</li>
+        <li>{{ product.name }}</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ product.name }}</h2>
+    <section id='product-info'></section>
 {% endblock %}
