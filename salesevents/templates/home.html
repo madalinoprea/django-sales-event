@@ -2,15 +2,16 @@
 
 {% block events %}
     {% if open_events %}
-    <h2>Events</h2>
-    <ul>
+    <ul class="events">
         {% for event in open_events %}
-        <li id="event-item-{{ event.id }}" class="event-item">
+        <li id="event-item-{{ event.id }}" class="event-item clearfix" data="{{ event.time_to_close }}">
+            <img src="{{ MEDIA_URL }}{{ event.image }}" alt="{{ event.name }}" />
             <h3>{{ event.name }}</h3>
-            <img src="{{ MEDIA_URL }}{{ event.image }}">
-            <div class="event-info">
-                <a class="button" href="{{ event.get_absolute_url }}">Shop Now</a>
-                <div class="event-ticker" id="event-ticker-{{ event.id }}" data="{{ event.time_to_close }}"></div>
+            <div class="text">
+                <p>The modern purse or handbag came about in England during the Industrial Revoluion and the increase in travel by railway. In 1841 the industrialist and confectionery entrepreneur Samuel Parkinson of butterscotch fame ordered a set of travelling cases and trunks and insisted on a travelling case or bag for his wife's particulars.</p>
+                <div class="action">
+                    <a href="{{ event.get_absolute_url }}">Shop now!</a>
+                </div>
             </div>
         </li>
         {% endfor %}
@@ -40,6 +41,25 @@
 
 {% block extra_js %}
 <script type="text/javascript">
+
+// Document is ready
+$(function () {
+    $('.event-item').each(function () {
+        var $this = $(this),
+            $timer = $this.find('.action').append('<div class="timer clearfix"></div>').find('.timer'),
+            secondsString = $this.attr('data'),
+            seconds = Math.round( parseFloat(secondsString, 10) );
+        $timer.countdown({
+            until: +seconds,
+            onExpiry: function () {
+                alert('teapa');
+            }
+        });
+    });
+});
+
+
+/*
 $(function(){
     function updateTimers(){
         
@@ -67,5 +87,6 @@ $(function(){
 
     initTimers();
 });
+*/
 </script>
 {% endblock %}

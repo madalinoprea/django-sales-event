@@ -105,7 +105,10 @@ class Event(models.Model):
         return Product.objects.filter(categories__in=self.category.get_descendants()).distinct()
 
     def time_to_close(self):
-        return format_timedelta(self.end_date - datetime.now())
+        # Former return format for former countdown
+        # We can use the total number of seconds now
+        #return format_timedelta(self.end_date - datetime.now())
+        return (self.end_date - datetime.now()).total_seconds()
 
     # FIXME: Check if start_date is < end_date when saving model
     

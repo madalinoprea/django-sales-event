@@ -1,5 +1,10 @@
-/**
- * User: madalinoprea
- * Date: 9/22/11
- * Time: 4:30 PM
- */
+// Document ready
+$(function () {
+    var $searchFormInput = $('#search-form input');
+    $searchFormInput.bind('focus', function () {
+        $(this).parents('form').addClass('focus');
+    });
+    $searchFormInput.bind('blur', function () {
+        $(this).parents('form').removeClass('focus');
+    });
+});

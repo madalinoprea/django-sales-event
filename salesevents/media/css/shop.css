@@ -9,6 +9,13 @@ body {
     color: #000;
 }
 
+input,
+button,
+textarea {
+    font-family: Cambria, Verdana, Arial, sans-serif;
+    font-size: 1em;
+}
+
 #page {
     width: 80%;
     min-width: 960px;
@@ -17,21 +24,28 @@ body {
 }
 
 a {
-    color: #1122CC;
+    color: #1e57fb;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #E50140;
+    color: #1122CC;
 }
 
+/* -------------------------------------------------------------------- Typography */
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+}
 
 /* -------------------------------------------------------------------- Toolbar */
 
 #toolbar {
     width: 100%;
-    background: #F5F5F5;
-    border-bottom: 1px solid #E5E5E5;
 }
 
 #toolbar .inner {
@@ -64,21 +78,106 @@ a:hover {
 /* -------------------------------------------------------------------- Header */
 
 #header {
-    padding: 1em;
+    padding: 1em 0;
     border-bottom: 1px solid #E5E5E5;
 }
 
 #header h1 {
+    float: left;
+    margin: 0 0 0 .3em;
     font-size: 1.2em;
 }
 
 #header h1 a {
     float: left;
-    height: 43px;
-    padding: 25px 0 0 80px;
-    background: url(/media/images/logo.png) no-repeat 0 0;
+    height: 47px;
+    padding: 30px 0 0 80px;
+    color: #555;
+    text-decoration: none;
+    font-style: italic;
+    background: url(../images/logo.png) no-repeat 0 0;
 }
 
+#header h1 a:hover {
+    color: #000;
+}
+
+#header #search-form {
+    float: right;
+    margin: 0 0 0 15em;
+}
+
+#header #search-form label {
+    float: left;
+    color: #666;
+}
+
+#header #search-form input.text {
+    float: left;
+    width: 20em;
+    padding-left: .25em;
+    padding-right: .25em;
+    border: 1px solid #E6E6E6;
+    border-right-width: 0;
+}
+
+#header #search-form.focus input.text,
+#header #search-form.focus button {
+    border-color: #6389f5;
+}
+
+#header #search-form button {
+    float: left;
+    padding-right: 5px;
+    border: 1px solid #E6E6E6;
+    border-left-width: 0;
+    background: #FFF;
+    color: #6389f5;
+    cursor: pointer;
+}
+
+#header #search-form button:hover {
+    color: #1122CC;
+}
+
+#header #tools {
+    clear: right;
+    float: right;
+}
+
+#header #tools ul {
+    float: right;
+    padding-right: 10px;
+    margin: 3px 0 0 0;
+}
+
+#header #tools li {
+    float: left;
+    padding: .2em 0 0 .5em;
+}
+
+#header #tools li a {
+    color: #6389f5;
+}
+
+#header #tools li a:hover {
+    color: #1122CC;
+}
+
+#header #tools p {
+    clear: both;
+    float: right;
+    padding-right: 10px;
+    margin: 3px 0 0 0;
+}
+
+#header #tools p a {
+    float: left;
+    padding: 3px 0 5px 25px;
+    margin: .2em 0 0 0;
+    text-transform: uppercase;
+    background: url(../images/ico-shopping-bag.png) no-repeat 0 0;    
+}
 
 /* -------------------------------------------------------------------- Breadcrumbs */
 
@@ -92,14 +191,67 @@ a:hover {
 }
 
 
+/* -------------------------------------------------------------------- Events */
 
+.events li {
+    margin: 2em 0 0 0;
+}
 
+.events li h3 {
+    padding: .25em .5em;
+    background: #FF0000;
+    color: #FFF;
+}
 
+.events li .text {
+    padding: 0 1em 1em 1em;
+    border-bottom: 3px dotted #FF0000;
+}
 
+.events li .text p {
+    padding: .5em 0 0 0;
+    font-size: 1.2em;
+}
 
+.events li .text .action a {
+    float: right;
+    padding: .25em .5em;
+    border: 1px solid #15772c;
+    margin: .75em 0 0 0;
+    font-size: 2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: #4bb357;
+    color: #FFF;
+}
 
+.events li img {
+    display: block;
+    border-bottom: 1px solid #d6d5d5;
+    width: 100%;
+}
 
+.events li .timer .countdown_row {
+    float: right;
+    font-size: 2em;
+}
 
+.events li .timer .countdown_section {
+    float: left;
+    padding: 1em .5em 0 0;
+    text-transform: lowercase;
+    color: #bec1c5;
+}
+
+.events li .timer .countdown_section br {
+    display: none;
+}
+
+.events li .timer .countdown_section .countdown_amount {
+    float: left;
+    padding: 0 .2em 0 0;
+    color: #FF0000;
+}
 
 
 /*

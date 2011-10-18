@@ -11,17 +11,6 @@
 </head>
 <body>
     
-<div id="toolbar" class="clearfix">
-    <div class="inner">
-        <p>Welcome, dear username. {{ user.first_name }}</p>
-        <ul>
-            <li><a href="#shopping-bag">Shopping Bag</a></li>
-            <li><a href="#shopping-bag">My Account</a></li>
-            <li><a href="{% url logout %}">Log out</a></li>
-        </ul>
-    </div>
-</div>
-
 <div id="page">
 {% block page %}
 
@@ -29,10 +18,19 @@
     {% block header %}
         <h1 class="clearfix"><a href="{% url home %}" title="Private Event Store">Private Event Store</a></h1>
         <form id="search-form" method="get" action="/search"><!--TODO: implement search -->
-            <label for="search">Search:</label>
-            <input type="search" name="q" value="">
-            <input type="submit" class="button positive" title="Go" value="Go">
+            <input class="text" type="search" name="q" value="">
+            <button type="submit">
+                <span>Search</span>
+            </button>
         </form>
+        <div id="tools">
+            <ul>
+                <li>John John Simmons {{ user.first_name }} -  </li>
+                <li><a href="#shopping-bag">My account</a></li>
+                <li><a href="{% url logout %}">Log out</a></li>
+            </ul>
+            <p><a href="#shopping-bag">Shopping bag</a></p>
+        </div>
     {% endblock %}
     </div>
 
@@ -65,7 +63,7 @@
 {% block js %}
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.countdown.js"></script>
 <script src="{{ MEDIA_URL }}js/shop.js"></script>
 {% endblock %}
 
